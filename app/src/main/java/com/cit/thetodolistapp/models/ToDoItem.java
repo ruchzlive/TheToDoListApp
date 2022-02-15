@@ -1,6 +1,7 @@
 package com.cit.thetodolistapp.models;
 
 public class ToDoItem {
+    public int mId;
     public String mSummery;
     public String mDescription;
 
@@ -10,6 +11,10 @@ public class ToDoItem {
         this.mSummery = summery;
         this.mDescription = description;
     }
+
+    public int getId() { return mId; }
+
+    public void setId(int id) { this.mId = id; }
 
     public String getSummery() {
         return mSummery;

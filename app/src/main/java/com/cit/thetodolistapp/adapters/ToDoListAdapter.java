@@ -30,6 +30,10 @@ public class ToDoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return new MyViewHolder(view);
     }
 
+    public void addToDoList(List<ToDoItem> list) {
+        mToDoItems = list;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyViewHolder myViewHolder = (MyViewHolder) holder;

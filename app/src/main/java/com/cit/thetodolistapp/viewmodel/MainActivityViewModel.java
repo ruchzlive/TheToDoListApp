@@ -1,5 +1,7 @@
 package com.cit.thetodolistapp.viewmodel;
 
+import android.app.Application;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -14,8 +16,8 @@ public class MainActivityViewModel extends ViewModel {
     public ToDoListRepository mRepository;
     public MutableLiveData<List<ToDoItem>> mToDoItemsList;
 
-    public void Init() {
-        mRepository = ToDoListRepository.getInstance();
+    public void Init(Application application) {
+        mRepository = ToDoListRepository.getInstance(application);
     }
 
     public LiveData<List<ToDoItem>> getToDoListItems() {
@@ -23,5 +25,12 @@ public class MainActivityViewModel extends ViewModel {
             mToDoItemsList = mRepository.getToDoListItems();
         }
         return mToDoItemsList;
+    }
+
+    public void addToDoItem(final ToDoItem toDoItem) {
+        List<ToDoItem> toDoItemList = mToDoItemsList.getValue();
+        toDoItemList.add(toDoItem);
+        mRepository.addToDoItem(toDoItem);
+        mToDoItemsList.postValue(toDoItemList);
     }
 }
