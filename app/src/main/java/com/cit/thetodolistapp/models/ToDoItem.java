@@ -1,9 +1,9 @@
 package com.cit.thetodolistapp.models;
 
 public class ToDoItem {
-    public int mId;
-    public String mSummery;
-    public String mDescription;
+    private int mId;
+    private String mSummery;
+    private String mDescription;
 
     public ToDoItem(){ }
 
